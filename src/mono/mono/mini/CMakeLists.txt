@@ -421,6 +421,7 @@ if(NOT DISABLE_SHARED_LIBS)
         target_link_libraries(${frameworkconfig} PRIVATE ${OS_LIBS} ${LLVM_LIBS} ${Z_LIBS})
 
         set_property(TARGET ${frameworkconfig} APPEND_STRING PROPERTY LINK_FLAGS " -Wl,-compatibility_version -Wl,2.0 -Wl,-current_version -Wl,2.0")
+        message("Component objects for ${frameworkconfig}: ${componentsobjects}")
         string(REPLACE "*" ";" componentsobjects-whitespace "${componentsobjects}")
         target_sources(${frameworkconfig} PRIVATE "${componentsobjects-whitespace}")
         set_target_properties(${frameworkconfig} PROPERTIES
