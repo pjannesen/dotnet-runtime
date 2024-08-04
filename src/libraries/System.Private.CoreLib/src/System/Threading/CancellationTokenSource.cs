@@ -76,12 +76,10 @@ namespace System.Threading
 
         /// <summary>Gets the <see cref="CancellationToken"/> associated with this <see cref="CancellationTokenSource"/>.</summary>
         /// <value>The <see cref="CancellationToken"/> associated with this <see cref="CancellationTokenSource"/>.</value>
-        /// <exception cref="ObjectDisposedException">The token source has been disposed.</exception>
         public CancellationToken Token
         {
             get
             {
-                ThrowIfDisposed();
                 return new CancellationToken(this);
             }
         }
